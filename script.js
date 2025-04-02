@@ -10,18 +10,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Ejercicio 2: Galería Interactiva
+    
+    
     const thumbnails = document.querySelectorAll(".thumbnail");
+    const previewImage = document.getElementById("previewImage");
     const imageDescription = document.getElementById("imageDescription");
-
-    thumbnails.forEach((thumb) => {
-        thumb.addEventListener("mouseover", () => {
-            imageDescription.textContent = thumb.dataset.description;
+    
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener("mouseover", () => {
+            previewImage.src = thumbnail.src;
+            previewImage.style.visibility = "visible";
+            previewImage.style.opacity = "1"; // Hace la imagen visible con transición
+            imageDescription.textContent = thumbnail.getAttribute("data-description");
+            imageDescription.style.visibility = "visible";
+            imageDescription.style.opacity = "1";
         });
-
-        thumb.addEventListener("mouseout", () => {
-            imageDescription.textContent = "";
+    
+        thumbnail.addEventListener("mouseout", () => {
+            previewImage.style.visibility = "hidden";
+            previewImage.style.opacity = "0"; // Oculta la imagen con transición
+            imageDescription.style.visibility = "hidden";
+            imageDescription.style.opacity = "0";
         });
     });
+    
+
+
 
     // Ejercicio 3: Lista de Tareas
     const taskInput = document.getElementById("taskInput");

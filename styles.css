@@ -5,17 +5,46 @@ button {
     margin-left: 10px;
 }
 
+
 #gallery {
     display: flex; 
-    gap: 10px; 
+    gap: 15px; 
     justify-content: center; 
     padding: 20px;
 }
 
 .thumbnail {
-    width: 200px;
-    height: 200px;
-    object-fit: cover; 
-    border: 2px solid black; 
-    border-radius: 5px; 
+    width: 200px;  
+    height: 200px; 
+    object-fit: cover;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; 
+}
+
+#previewContainer {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#previewImage {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border: 3px solid black;
+    border-radius: 10px;
+    visibility: hidden; /* Cambiado de display: none a visibility: hidden */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#imageDescription {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
